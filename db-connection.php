@@ -14,4 +14,3 @@ try{
 }catch (PDOException $e) {
         echo 'Failed to connect DATABASE: '.$e->getMessage();
 }
-?>
