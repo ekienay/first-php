@@ -33,3 +33,14 @@ if (!empty($_POST['search']['keyword'])) {
     $pdo_statement->execute();
     $result = $pdo_statement->fetchAll(PDO::FETCH_OBJ);
 }
+
+//Sort
+$sort_key = '';
+if (!empty($_POST['sort']['scep'])) {
+    $sort_key = $_POST['sort']['spec'];
+    $sql = 'SELECT * FROM member WHERE special LIKE :spec ORDER BY id DESC';
+    $pdo_statement = $pdo->prepare($sql);
+    $pdo_statement->bindValue(':spec', '%' . $sort_key . '%', PDO::PARAM_STR);
+    $pdo_statement->execute();
+    $result = $pdo_statement->fetchAll(PDO::FETCH_OBJ);
+}
