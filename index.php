@@ -14,22 +14,28 @@
 
 
   <form class="form-inline" method="post">
-    <input class="form-control mr-sm-2" name="search[keyword]" type="search" placeholder="Search" aria-label="Search">
+    <input class="form-control mr-sm-2 bg-dark" name="search[keyword]" type="search" placeholder="Search" aria-label="Search">
   </form>
 
-  <form method="post" name="sort[spec]">
-    <select>
-      <option value="" disabled selected>Select your option</option>
-      <option value="1">BackEnd</option>
-      <option value="2">FrontEnd</option>
-    </select>
-    <button type="submit">Click</button>
-  </form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <form method="post" class="form-inline">
+        <select class="form-select mt-2" name="spec">
+          <option value="" disabled selected> Select your option </option>
+          <option value="BackEnd">BackEnd</option>
+          <option value="FrontEnd">FrontEnd</option>
+        </select>
+        <button class="btn btn-dark mt-2" type="submit">Filter</button>
+      </form>
+    </div>
+  </div>
 
   <div class="container mt-4 text-center">
     <h1>Welcome to php.example page</h1>
     <h3>List of mamebers</h3>
   </div>
+
+
 
   <div class="row m-auto">
     <?php foreach ($result as $res) { ?>
@@ -48,7 +54,6 @@
         </div>
       </div>
     <?php } ?>
-
   </div>
 
 
