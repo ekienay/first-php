@@ -2,12 +2,14 @@
 
 include 'db-connection.php';
 
+
+
+//Insert
 // $name = $_POST['name'];
 // $special = $_POST['special'];
 // $email = $_POST['email'];
 // $get_Id = $_POST['id'];
 
-//Insert
 // if(isset($_POST['add'])){
 //     $sql = ("INSERT INTO member (name,special,email) VALUES (?,?,?)");
 //     $query = $pdo -> prepare($sql);
@@ -42,3 +44,13 @@ if (!empty($_POST['spec'])) {
     $pdo_statement->execute();
     $result = $pdo_statement->fetchAll(PDO::FETCH_OBJ);
 }
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $sql = 'SELECT projects.project_name from projects inner join member_has_projects on member_has_projects.projects_id = projects.id where member_has_projects.member_id = ? ';
+    $pdo_statement = $pdo->prepare($sql);
+    $pdo_statement->execute([$id]);
+    $list = $pdo_statement->fetchAll(PDO::FETCH_OBJ);
+}
+
+

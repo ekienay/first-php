@@ -25,14 +25,14 @@
           <option value="BackEnd">BackEnd</option>
           <option value="FrontEnd">FrontEnd</option>
         </select>
-        <button class="btn btn-dark mt-2" type="submit">Filter</button>
+        <button class="btn btn-dark mt-2" name="p_list" type="submit">Filter</button>
       </form>
     </div>
   </div>
 
   <div class="container mt-4 text-center">
     <h1>Welcome to php.example page</h1>
-    <h3>List of mamebers</h3>
+    <h3>«List of mamebers»</h3>
   </div>
 
 
@@ -50,6 +50,7 @@
           </div>
           <div class="card-footer text-muted">
             <p><?php echo $res->email; ?></p>
+            <a href="/project_list.php?id=<?php echo $res->id; ?>"><button class="btn btn-success mt-2" type="submit">Показать проекты</button></a>
           </div>
         </div>
       </div>
